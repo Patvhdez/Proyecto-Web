@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <title>Proyecto Web</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="   crossorigin="anonymous"></script>
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="jumbotron.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Proyecto Web</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+        </ul>
+          <form class="navbar-form navbar-right">
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
+          </form>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Buscas algo?...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron ">
+      <div class="container text-center">
+        <h1>Bolsa de Empleo</h1>
+        <p>Encuentra el empleo de tus sueños y conviertete en lo que siempre quisiste ser!</p>
+        <p><a class="btn btn-danger btn-lg" href="post.html" role="button">Post a Job</a></p>
+      </div>
+    </div>
+
+    <div id="seccion1" class="container">
+     <div class="container-fluid bg-2">
+      <div class="row row-content">
+          <div class="col-xs-12 col-sm-3 col-sm-push-9">
+              <p style="padding:20px;"></p>
+              <h3 align=center  style="color: #0066cc">Eres Diseñador?</h3>
+          </div>
+          <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+            <br>
+            <br>
+              <h2 align=center >Designing Jobs</h2>
+
+              <br>
+              <br>
+              <table class="table table-bordered table-hover" id="destable">
+     <thead>
+       <tr>
+         <th>Location</th>
+         <th>Position</th>
+         <th>Company</th>
+       </tr>
+     </thead>
+     <tbody>
+
+
+     </tbody>
+   </table>
+        </div>
+              <a class="btn btn-info btn-sm" href="jobs1.html">More &raquo;</a></p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div id="seccion2" class="container">
+       <div class="container-fluid bg-2">
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align=center style="color: #0066cc">...O Programador?</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+              <br>
+              <br>
+              <br>
+              <br>
+                <h2 align=center >Programming Jobs</h2>
+                <br>
+                <br>
+                <table class="table table-bordered table-hover" id="protable">
+       <thead>
+         <tr>
+           <th>Location</th>
+           <th>Position</th>
+           <th>Company</th>
+         </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+     </table>
+          </div>
+                <a class="btn btn-info btn-sm" href="jobs2.html">More &raquo;</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <footer class="container-fluid text-center">
+          <p> © 2017 Proyecto Gestion de Sitios Web</p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      $(function() {
+
+        if(localStorage.jobs == undefined) {
+          console.log(entro);
+
+          localStorage.jobs = JSON.stringify([]);
+        } else {
+          var table = document.getElementById("protable");
+          var destable = document.getElementById("destable");
+
+          var arr = JSON.parse(localStorage.jobs);
+          for(var i = 0;i<arr.length;i++) {
+            console.log(arr[i].cat)
+            if(arr[i].cat == "DSN"){
+              var row = destable.insertRow(1);
+
+            } else {
+              var row = table.insertRow(1);
+
+            }
+               var cell1 = row.insertCell(0);
+               var cell2 = row.insertCell(1);
+               var cell3 = row.insertCell(2);
+               cell1.innerHTML = arr[i].loc;
+               cell2.innerHTML = arr[i].pos;
+               cell3.innerHTML = arr[i].com;
+          }
+        }
+        })
+    </script>
+  </body>
+</html>
